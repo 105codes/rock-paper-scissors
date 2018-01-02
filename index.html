@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rock-paper-scissors</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function computerPlay() {
+			let x = Math.floor(Math.random() * 3);
+			if (x == 0) {
+				return "rock";
+			}else if (x == 1) {
+				return "paper";
+			} else {
+				return "scissors";
+			}	 
+		}
+		function getPlay() {
+			let shoot = prompt("Make a choice of rock, paper or scissors:", '');
+			let cue = shoot.toLowerCase();
+			return cue;
+		}
+		// console.log(computerPlay())
+		// console.log(getPlay())
+
+		function playRound(playerSelection, computerSelection) {
+			if (computerSelection=="rock") {
+				if (playerSelection=="rock") {
+					return 'This is draw game. Play again.'
+				}else if (playerSelection=='paper') {
+					return 'Congratulations! You have won this round.'
+				} else if (playerSelection=='scissors'){
+					return 'You have lost this round.'
+				}
+			}else if (computerSelection=='paper') {
+				if (playerSelection=='rock') {
+					return 'You lose. Paper covers rock.'
+				}else if (playerSelection=='paper') {
+					return 'A tie. Play again.'
+				} else if (playerSelection=='scissors'){
+					return 'Congratulations! You win. scissors cut paper.'
+				}
+			} else if (computerSelection=='scissors'){
+				if (playerSelection=='rock') {
+					return 'Congratulations! You have won this round.'	
+				}else if (playerSelection=='paper') {
+					return 'You have lost this round.'
+				} else if (playerSelection=='scissors'){
+					return 'This is draw game. Play again.'
+				}
+			}
+		}
+
+		const playerSelection = getPlay();
+		const computerSelection = computerPlay();
+		console.log(playRound(playerSelection, computerSelection))
+
+	</script>
+</body>
+</html>
